@@ -1,0 +1,7 @@
+{
+  "name": "CBBATurismo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
