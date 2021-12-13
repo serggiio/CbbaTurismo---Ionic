@@ -1,0 +1,36 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title>
+      {{languageData.detail.general.popUp.header}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngIf="products && products.length > 0">
+
+    <ion-item *ngFor="let product of products">
+      <ion-avatar slot="start">
+        <img onerror="this.onerror=null;this.src='../../../assets/error.jpg';" src="{{urlImage + product.productId}}">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{product.productName}}</h2>
+        <h3>{{product.productDescription}}</h3>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <div *ngIf="!products || products.length === 0">
+    <br><br>
+    <div class="center">
+      <ion-icon style="color: black; font-size: 100px;" name="beer"></ion-icon><br>
+      
+    </div>
+    <div class="center">
+      <h2>{{languageData.detail.general.popUp.productsNotFound}}</h2>
+    </div>
+  </div>
+
+</ion-content>
+<ion-button (click)="dismiss()">{{languageData.common.close}}</ion-button>

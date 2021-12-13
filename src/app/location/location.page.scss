@@ -1,0 +1,60 @@
+#map {
+  width: 100%;
+  height: 400px;
+}
+.touristicList{
+  margin: 10px;
+}
+.itemImage{
+  width: 100%;
+  height: 170px;
+}
+.vl {
+  border-left: 6px solid green;
+  height: 500px;
+}
+.cardItem{
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  width: 100%;
+  height: 170px;
+  z-index: 1;
+}
+.rateElement{
+  color: rgb(177, 228, 82);
+  font-size: large;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.ionItem{
+  width: 100%;
+}
+input{
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 35%;
+}
+.searchIcon{
+  font-size: 64px;
+}
+.labelStatus{
+  left: 0;
+  bottom: 0;
+}
+.distanceElement{
+  bottom: 0;
+  right: 0;
+  width: fit-content;
+  z-index: 20;
+  position: absolute;
+}
+.distanceContent{
+  font-size: 10px;
+}
+.new-background-color{
+  //--background: #54d61c;
+}

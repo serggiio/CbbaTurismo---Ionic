@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title slot="start">{{viewTitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="serviceCalled">
+  <calendar [eventSource]="eventSource"
+  [calendarMode]="calendar.mode"
+  [currentDate]="calendar.currentDate"
+  (onEventSelected)="onEventSelected($event)"
+  (onTitleChanged)="onViewTitleChanged($event)"
+  [step]="calendar.step">
+  
+</calendar>
+</ion-content>

@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title slot="start">{{languageData.list.header}}</ion-title> 
+    <ion-button (click)="presentModal()" slot="end">?</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="font-family: 'Apple Chancery', cursive; ">
+  <div class="form-group mb-4 ion-text-center">
+    <input class="form-control" type="text" [(ngModel)]="filterText" placeholder="{{languageData.list.filterPlaceHolder}}">
+  </div>
+  <ion-list class="touristicList">
+
+    <ion-item *ngFor="let data of tourismData.data | filterPlaces: filterText" style="width: fit-content; height: fit-content; border-radius: 4px;">
+      <ion-card class="card">
+
+        <div class="img-avatar">
+          <h4>{{data.provinceName}}</h4>
+        </div>
+
+        <div class="card-text">
+          <div class="portada">
+            <img
+            onerror="this.onerror=null;this.src='../../../assets/error.jpg';"
+            class="itemImage" src="{{ 'https://fast-eyrie-03100.herokuapp.com/api/touristicPlace/mainImage/'+data.touristicPlaceId }}" alt="">
+          </div>
+
+          <div class="title-total">   
+            <div class="title">
+              <ion-badge class="badgeItem">{{data.type}}</ion-badge>
+              <ion-badge class="badgeItem">{{data.rateAvg}}<ion-icon class="rateElement" name="star"></ion-icon></ion-badge>
+              <ion-badge class="badgeItem">{{data.gallery.length}}<ion-icon name="images"></ion-icon></ion-badge>
+            </div>
+            <h2>{{data.placeName}}</h2>
+            <div class="ionScrollH" style="display:flex; flex-direction: row;">
+              <div *ngFor="let tag of data.tagList">
+                <ion-badge class="badgeItem">
+                  <ion-label>{{tag}}</ion-label>
+                </ion-badge>
+              </div>
+            </div>
+            <div class="desc">
+              <div *ngIf="data.type === 'evento'">
+                {{data.startDate + ' hasta ' + data.endDate}}
+              </div>
+            </div>
+            <div class="actions">
+              <ion-button color="success" (click)="goToDetail(data)"><ion-icon name="arrow-forward-circle-outline"></ion-icon></ion-button>
+            </div>
+          </div>
+       
+        </div>
+      </ion-card>
+
+    </ion-item>
+  </ion-list>
+</ion-content>

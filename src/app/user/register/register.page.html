@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{languageData.register.header}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="z-index: 0; position: absolute; width: 100%; height: 100%;">
+    <img style="width: 100%; height: 100%;" src="https://fast-eyrie-03100.herokuapp.com/api/touristicPlace/mainImage/8" alt="">
+  </div>
+
+  <ion-card class="loginForm" style="z-index: 1;">
+    <form (ngSubmit)="saveUserForm()" class="loginForm" #formAdd="ngForm">
+      <div class="form-group">
+        <label for="name">{{languageData.register.nameField}}</label>
+        <ion-input class="inputForm" type="text" [(ngModel)]="userFormData.name" name="name" required placeholder="{{languageData.register.nameField}}" ngModel [required]></ion-input>
+      </div>
+      <div class="form-group">
+        <label for="lastName">{{languageData.register.lastNameField}}</label>
+        <ion-input class="inputForm" type="text" [(ngModel)]="userFormData.lastName" name="lastName" required placeholder="{{languageData.register.lastNameField}}" ngModel [required]></ion-input>
+      </div>
+      <div class="form-group">
+        <label for="email">{{languageData.register.emailField}}</label>
+        <ion-input class="inputForm" type="email" [(ngModel)]="userFormData.email" name="email" required placeholder="{{languageData.register.emailPlaceHolder}}" ngModel [email]="true"></ion-input>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">{{languageData.register.numberField}}</label>
+        <ion-input class="inputForm" type="text" [(ngModel)]="userFormData.phoneNumber" name="phoneNumber" required placeholder="" ngModel [required]></ion-input>
+      </div>
+      <div class="form-group">
+        <label for="password">{{languageData.register.passwordField}}</label>
+        <ion-input class="inputForm" type="password" [(ngModel)]="userFormData.password" name="password" required placeholder="" ngModel [required]></ion-input>
+      </div>
+      <div class="form-group">
+        <label for="repeatPassword">{{languageData.register.repeatPasswordField}}</label>
+        <ion-input class="inputForm" type="password" [(ngModel)]="userFormData.repeatPassword" name="repeatPassword" required placeholder="" ngModel [required]></ion-input>
+      </div>
+      <ion-button type="submit" style="width: 100%;" [disabled]="formAdd.form.invalid">{{languageData.register.registerButton}}</ion-button>
+    </form>
+  </ion-card>
+</ion-content>

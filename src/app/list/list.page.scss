@@ -1,0 +1,130 @@
+
+/*.ionBody {
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
+}
+.touristicList{
+  width: 90%;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.itemImage{
+  height: 210px;
+}
+.cardItem{
+  height: 210px;
+  width: 100%;
+  margin-left: 0;
+}
+.ionScrollH{
+  white-space: nowrap;
+  width: 100%;
+  overflow-x: auto !important;
+}
+input{
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: fit-content;
+}*/
+
+.card {
+  //background-image: linear-gradient(to top, #0bff7e, #21ef78, #2bdf72, #32cf6c, #36c066);
+  border-radius: 4px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  border-radius: 25px;
+  position: relative;
+}
+.card h2 {
+  margin: 0;
+  padding: 0 1rem;
+  //color: white;
+}
+.card .title {
+  padding: 1rem;
+  text-align: right;
+  //color: white;
+  font-weight: bold;
+  font-size: 12px;
+}
+.card .desc {
+  padding: 0.5rem 1rem;
+  font-size: 12px;
+}
+.rateElement{
+  color: yellow;
+  font-size: small;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.ionScrollH{
+  white-space: nowrap;
+  width: 150px;
+  overflow-x: auto !important;
+}
+.card .actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+
+.img-avatar {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  border-radius: 50%;
+  border: 6px solid white;
+  background-image: linear-gradient(to top, #96fbc4 0%, #c7c463 100%);
+  top: 12px;
+  left: 85px;
+  color: white;
+}
+
+h4 {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  color: black;
+}
+
+.card-text {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.title-total {
+  padding: 2.5em 1.5em 1.5em 1.5em;
+}
+
+
+
+
+
+
+.itemImage {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-position: bottom center;
+  background-size: cover;
+}
+
+.badgeItem{
+  color: white; background-color: rgb(56, 155, 56);
+}

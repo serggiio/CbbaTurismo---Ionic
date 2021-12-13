@@ -1,0 +1,161 @@
+<ion-content>
+  
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button  (click)="shareSocial()">
+      <ion-icon name="share-social"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+<header>
+
+  <!-- First container -->
+  <div class="container container_solid">      
+      <img class="headerImg" style="z-index: -1;" src="{{urlImage + sharedService.detailId}}" alt="">
+      
+      <div class="headerContainer" style="z-index: -1; padding-top: 5%; height: 60%;">
+        <div style="text-align: center;">
+          <h2>{{name}}</h2>
+        </div>
+
+        <div style="text-align: center;">
+          <h3>{{province}}</h3>
+        </div>
+
+        <ion-card style="height: 20%;">
+          <ion-card-content class="addressContainer">
+            {{streets}}            
+          </ion-card-content>
+        </ion-card>
+
+        <ion-row style="height: 25%;">
+          
+          <ion-col size="7" style="height: 100%;">
+            <ion-card style="height: 100%;">
+              <ion-icon name="arrow-back-circle-outline" style="position: absolute; z-index: 2; right: 0;"></ion-icon>
+              <ion-item-sliding style="width: 100%; height: 100%; overflow-y: scroll;">
+                <ion-item>
+                  <ion-list>
+                    <ion-item style="font-size: small;">
+                      <ion-icon name="alarm" style="margin-right: 15px;"></ion-icon> {{businessHours}}
+                    </ion-item>
+                    <ion-item style="font-size: small;">
+                      <ion-icon name="globe" style="margin-right: 15px;"></ion-icon>
+                      <a href="{{webAddress}}">{{webAddress}}</a>
+                    </ion-item>
+                    <ion-item style="font-size: small;">
+                      <ion-icon name="call" style="margin-right: 15px;"></ion-icon> {{contactInfo}}                      
+                    </ion-item>
+                  </ion-list>
+                </ion-item>
+                <ion-item-options side="end">
+                  <ion-item-option>
+                    <ion-button 
+                    *ngIf="!userFavorite"
+                    style="width: 100%; color: rgb(236, 226, 233);" 
+                    [disabled]="!userData" 
+                    (click)="setFavorite('save')"><ion-icon name="heart"></ion-icon>
+                  </ion-button>
+                  <ion-button 
+                  *ngIf="userFavorite"
+                    style="width: 100%;" 
+                    [disabled]="!userData" 
+                    (click)="setFavorite('delete')"><ion-icon name="trash-outline"></ion-icon>
+                  </ion-button>
+                  </ion-item-option>
+                  <ion-item-option>
+                    <ion-button (click)="showProducts()" style="width: 100%;"><ion-icon name="fast-food" ></ion-icon></ion-button>
+                  </ion-item-option>
+                </ion-item-options>
+              </ion-item-sliding>
+            </ion-card>
+          </ion-col>
+
+          <ion-col size="5" style="height: 100%;">
+            <ion-card class="cardContainer" >
+              <ion-card-content style="width: 100%;">
+                <ion-button style="width: 100%;" *ngIf="!userData">Login</ion-button>
+                
+                <ion-select placeholder="{{userActualRate}}" *ngIf="userData" interface="popover"  (ionChange)="onChange($event)"> 
+                  <ion-select-option value="1">⭐</ion-select-option>
+                  <ion-select-option value="2">⭐⭐</ion-select-option>
+                  <ion-select-option value="3">⭐⭐⭐</ion-select-option>
+                  <ion-select-option value="4">⭐⭐⭐⭐</ion-select-option>
+                  <ion-select-option value="5">⭐⭐⭐⭐⭐</ion-select-option>                  
+                </ion-select>
+
+              </ion-card-content>
+            </ion-card>
+          </ion-col>  
+
+        </ion-row>
+<br><br>
+        <div style="display:flex; flex-direction: row; height: 10%; padding-top: 5%;">
+          <div class="center" *ngFor="let rate of [].constructor(this.rate)">
+            <ion-icon class="rateElement" name="star"></ion-icon>
+          </div>
+          <div class="center" *ngIf="rate === 0">
+            <ion-icon class="rateElement" name="star"></ion-icon>
+          </div>
+          <br>
+        </div>
+
+      </div>
+
+      <ion-row style="  width:100%; display: flex; justify-content: center;">
+        <ion-card style="border: 5px solid rgb(57, 202, 94);border-radius: 50%; background-color: rgb(57, 202, 94);width: 110px; height: 110px; position: absolute; top: 30%;">
+          <img style="z-index: 10; top: 40%; width: 100%; height: 100%;" src="{{urlImage + sharedService.detailId}}" alt="">
+        </ion-card>
+      </ion-row>
+        
+
+
+
+
+  </div>
+
+  <!-- Second container -->  
+  <div class="container container_image" style="background-image: url({{mainImage}}); "  aria-hidden="true">
+
+      <div class="ionScrollH" style="display:flex; flex-direction: row; top: 50px;">
+        <ion-card-subtitle *ngFor="let tag of tags">
+          <ion-card class="ionScrollH cardTag" style="width: 90px; height: 115px; justify-content: center; overflow:hidden; white-space:nowrap; text-overflow: ellipsis;">
+            <img src="{{ urlTagImage+tag }}" alt="" style=" width: 100%; height: 100%;">
+  
+            <div class="coursemeal-info">
+              {{tag}}
+            </div>
+          </ion-card>
+        </ion-card-subtitle>
+      </div>
+
+    <ion-card class="card1">
+      <ion-card-title style="color: white; height: 60%;"><ion-icon class="iconCard" name="images-outline"></ion-icon></ion-card-title>
+      <ion-card-content style="height: 40%;" class="center contentCard">{{gallery.length + languageData.detail.general.galleries}}</ion-card-content>
+    </ion-card>
+
+    <ion-card class="card2" (click)="showProducts()">
+      <ion-card-title style="color: white; height: 60%;"><ion-icon class="iconCard" name="beer-outline"></ion-icon></ion-card-title>
+      <ion-card-content style="height: 40%;" class="center contentCard">{{product.length + languageData.detail.general.products}}</ion-card-content>
+    </ion-card>
+
+    <ion-card class="card3">
+      <ion-card-title style="color: white; height: 60%;"><ion-icon class="iconCard" name="leaf-outline"></ion-icon></ion-card-title>
+      <ion-card-content style="height: 40%;" class="center contentCard">{{type === 'place' ? languageData.detail.general.place: languageData.detail.general.event}}</ion-card-content>
+    </ion-card>
+
+
+  </div>
+
+</header>
+
+<section style="">
+  <div class="wrapper" style="">
+    <img style="z-index: -1; width: 100%; height: auto; position: absolute; filter: sepia(100%); -webkit-filter: sepia(100%);" src="{{urlImage + sharedService.detailId}}" alt="">
+    <ion-card style="z-index: 9; position: absolute; margin-top: 50px; left: 20px; right: 20px;">
+      <ion-card-title style="padding: 25px; left: 30%; right: 30%;">{{languageData.detail.general.history}}</ion-card-title>
+      <ion-card-content>{{history}}</ion-card-content>
+    </ion-card>
+  </div>
+</section>
+
+</ion-content>

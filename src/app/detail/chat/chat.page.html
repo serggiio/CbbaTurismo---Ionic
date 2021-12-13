@@ -1,0 +1,24 @@
+<ion-header>
+
+
+  <div class="ionScrollH" style="display:flex; flex-direction: row;">
+    <ion-input class="form-control" type="text" [(ngModel)]="commentaryText" placeholder="{{languageData.detail.commentary.placeHolder}}"></ion-input>    
+    <ion-button class="saveButton" (click)="saveCommentary()"  [disabled]="!userData"><ion-icon name="save"></ion-icon></ion-button>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="dataLength > 0">
+    <ion-list *ngFor="let comentary of  comentaryData">
+      <ion-item>
+        <ion-card class="cardComentary">
+          <ion-header class="comentaryHeader">
+            {{comentary.user.name + ' '+comentary.user.lastName + ' ' + comentary.created_at}}
+          </ion-header>
+          {{comentary.commentaryDesc}}
+        </ion-card>
+        <ion-button *ngIf="userData && userData.userId === comentary.user.userId" class="" (click)="deleteCommentary(comentary.commentaryId)" ><ion-icon name="trash"></ion-icon></ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

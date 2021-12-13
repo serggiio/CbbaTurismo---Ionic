@@ -1,0 +1,66 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title>
+      {{this.languageData.list.filterHeader}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-list-header>
+      {{this.languageData.list.filterTitle}}
+    </ion-list-header>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../../assets/province.png">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{this.languageData.list.provinceFilter}}</h2>
+        <h3>Cercado, Quillacollo, Punata...</h3>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../../assets/tag.png">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{this.languageData.list.tagsFilter}}</h2>
+        <h3>Restaurantes, Lugar historico...</h3>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../../assets/star.png">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{this.languageData.list.rateFilter}}</h2>
+        <h3>Núnumero de estrellas 1, 2...</h3>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../../assets/name.png">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{this.languageData.list.nameFilter}}</h2>
+        <h3>Catedral metropolitana...</h3>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="../../../assets/street.png">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{this.languageData.list.streetFilter}}</h2>
+        <h3>Avenida... y calles.....</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-button (click)="dismiss()">{{this.languageData.common.close}}</ion-button>

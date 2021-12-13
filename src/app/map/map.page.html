@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{languageData.map.header}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="false">
+  <div (click)="mapListener($event)" #map id="map" class="fixed" scroll="false"></div> 
+</ion-content>
+
+
+<ion-content [scrollEvents]="true" class="ion-text-start">
+
+
+  <div class="container">
+    <ion-card style="width: 90%; height: 150px; border-radius: 4px; margin-left: auto; margin-right: auto;" *ngIf="markerData">
+            <img style="height: 100%; width: 100%; position: absolute;"
+            onerror="this.onerror=null;this.src='../../../assets/error.jpg';"
+            src="{{ 'https://fast-eyrie-03100.herokuapp.com/api/touristicPlace/mainImage/'+markerData.touristicPlaceId }}" alt="">
+            
+            <ion-card-content style="position: absolute; background-color: rgba(0,0,0, 0.3);; color: white; width: 100%; bottom: 0%; height: 30%;">          
+              <h2>{{markerData.placeName}}</h2>
+            </ion-card-content>
+
+            <ion-card-content style="position: absolute; background-color: rgba(0,0,0, 0.3);; color: white; width: 20%; right: 0%; height: 100%; margin-left: auto; margin-right: auto;">          
+              <ion-button (click)="goToDetail(markerData.touristicPlaceId)"><ion-icon name="enter-outline"></ion-icon></ion-button><br>
+              {{markerData.rateAvg}}<ion-icon name="star-outline"></ion-icon><br>
+              {{markerData.gallery.length}}<ion-icon name="images"></ion-icon>
+            </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

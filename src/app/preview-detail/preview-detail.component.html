@@ -1,0 +1,13 @@
+<ion-content [fullscreen]="true" >
+
+
+        <ion-button class="modalButton" (click)="closeModal()">X</ion-button>
+        <ion-slides style="height: 100%; width: 100%;" class="sliderImage" pager="true" [options]="slideOptsOne" #slideWithNav
+          (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
+          <ion-slide style="background-color: black;" *ngFor="let image of sliderOne.slidesItems">
+            <img  class="elementSlide" src="{{urlImage+image.imageId}}">            
+          </ion-slide>          
+        </ion-slides>
+        <ion-button class="modalDetailBtn" (click)="nextView(touristicPlaceId)">Visitar</ion-button>
+
+</ion-content>

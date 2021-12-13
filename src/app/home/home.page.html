@@ -1,0 +1,33 @@
+<ion-content>
+
+  <img class="mainIcon" src="../../assets/main.png" alt="">
+
+  <div class="blockMessage">
+    <div class="divBorder"></div>
+    <div class="divBorder1"></div>
+    <div class="divBorder2"></div>
+    <p class="text1">{{languageData.home.title}}</p>
+    <p class="text2">{{languageData.home.title2}}</p>
+  </div>
+
+  <div class="menuContainer">
+    <p class="navText">{{languageData.home.message}}
+      <br><br>
+      <ion-button [routerLink]="'/qr'"><ion-icon name="qr-code"></ion-icon></ion-button>
+      <ion-button (click)="goToList()"><ion-icon name="cloud-upload"></ion-icon></ion-button>
+  </p>
+  <p class="navDot">..........................................................
+    ..........................................................
+    ..........................................................
+  </p>
+  </div>
+
+
+  <div class="backImage">
+    <img class="mainImage" src="https://fast-eyrie-03100.herokuapp.com/api/touristicPlace/mainImage/8" alt="">
+  </div>
+
+
+
+
+</ion-content>

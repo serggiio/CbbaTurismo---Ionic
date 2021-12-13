@@ -1,0 +1,22 @@
+<ion-content>
+
+  <br>
+
+  <ion-list>
+    <div *ngFor="let gallery of galleriesData; let i=index">
+      <ion-card-header>
+        <h2>{{gallery.galleryName + ' (' + gallery.images.length + ')'}}</h2>
+        <hr style="border-top: solid rgb(97, 97, 97)">
+      </ion-card-header>
+  
+      <ion-row *ngIf="gallery.images.length > 0">
+        <ion-col size="6" *ngFor="let image of gallery.images">
+          <img style="height: 180px; width: 100%;"
+          onerror="this.onerror=null;this.src='../../../assets/error.jpg';"
+           (click)="imageModal(urlImage + image.imageId)" src="{{urlImage + image.imageId}}" />
+        </ion-col>
+      </ion-row>
+    </div>
+
+  </ion-list>
+</ion-content>

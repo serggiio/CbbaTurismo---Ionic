@@ -1,0 +1,34 @@
+#map {
+  width: 100%;
+  height: 400px;
+}
+.container{
+  margin: 10px;
+}
+.itemImage{
+  width: 100%;
+  height: 100%;
+}
+.vl {
+  border-left: 6px solid green;
+  height: 500px;
+}
+.cardItem{
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  width: 100%;
+  height: fit-content;
+}
+.rateElement{
+  color: yellow;
+  font-size: large;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+.ionItem{
+  width: 100%;
+}

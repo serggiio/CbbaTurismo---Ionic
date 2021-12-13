@@ -1,0 +1,16 @@
+<ion-content>
+  <div #map id="map" class="fixed" scroll="false">
+    
+  </div> 
+  <ion-card style="position: absolute; z-index: 2;">
+    Distancia
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed" style="height: fit-content; width: fit-content">
+    <ion-card style="padding: 10px;">
+      <ion-card-title>
+        <ion-icon name="footsteps" style="margin-right: 10px;"></ion-icon>{{distanceAprox}}
+      </ion-card-title>
+    </ion-card>
+  </ion-fab>
+</ion-content>
