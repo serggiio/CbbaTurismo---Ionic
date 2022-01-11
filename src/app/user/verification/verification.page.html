@@ -8,11 +8,11 @@
   <ion-card class="loginForm">
     <form (ngSubmit)="validateUser()" class="loginForm" #formAdd="ngForm">
       <div class="form-group">
-        <label for="email">Correo electronico</label>
+        <label for="email"><strong><ion-icon name="person-circle" style="font-size: 20px;"></ion-icon>Correo electronico</strong></label>
         <ion-input class="inputForm" type="email" [(ngModel)]="userFormData.email" name="email" required placeholder="example@gmail.com" ngModel [email]="true"></ion-input>
       </div>
       <div class="form-group">
-        <label for="code">Código</label>
+        <label for="code"><strong><ion-icon name="key" style="font-size: 20px;"></ion-icon>Código</strong></label>
         <ion-input class="inputForm" type="text" [(ngModel)]="userFormData.code" name="code" required placeholder="Codigo de confirmacion" ngModel [required]></ion-input>
       </div>      
       <ion-button type="submit" style="width: 100%;" [disabled]="formAdd.form.invalid">VALIDAR</ion-button>

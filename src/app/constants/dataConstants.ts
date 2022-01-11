@@ -24,7 +24,8 @@ const configConstants = {
       userById: 'getUser',
       updateProfile: 'update',
       registerAccount: 'saveUser',
-      verificateCode: 'verificateCode'
+      verificateCode: 'verificateCode',
+      resetPassword: 'resetPassword'
     }
   }
 };

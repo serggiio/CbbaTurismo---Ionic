@@ -19,6 +19,12 @@
             <ion-item routerDirection="root" [routerLink]="'/register'" lines="none" detail="false" routerLinkActive="selected">
               <ion-button style="width: 100%; height: 60%;" color="tertiary" expand="full"><ion-icon name="person-add" size="small" style="color: white;"></ion-icon>{{languageData.mainMenu.register}}</ion-button>
             </ion-item>
+            <ion-item routerDirection="root" [routerLink]="'/verification'" lines="none" detail="false" routerLinkActive="selected">
+              <ion-button style="width: 100%; height: 60%;" color="tertiary" expand="full"><ion-icon name="person-add" size="small" style="color: white;"></ion-icon>{{languageData.mainMenu.verification}}</ion-button>
+            </ion-item>
+            <ion-item routerDirection="root" [routerLink]="'/reset-password'" lines="none" detail="false" routerLinkActive="selected">
+              <ion-button style="width: 100%; height: 60%;" color="tertiary" expand="full"><ion-icon name="key" size="small" style="color: white;"></ion-icon>{{languageData.mainMenu.resetPassword}}</ion-button>
+            </ion-item>
           </ion-menu-toggle>
           <ion-menu-toggle auto-hide="false" *ngIf="userSession.userData">
             <ion-item routerDirection="root" [routerLink]="'/profile'" lines="none" detail="false" routerLinkActive="selected">

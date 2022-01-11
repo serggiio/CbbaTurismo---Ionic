@@ -41,4 +41,10 @@ export class UserService {
       .pipe();
   }
 
+  resetPassword(userData): Observable<any> {
+    console.log('body', userData);
+    return this.http.post<any>( this.path+configConstants.api.user.resetPassword, userData )
+      .pipe();
+  }
+
 }

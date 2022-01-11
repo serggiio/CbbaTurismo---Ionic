@@ -20,7 +20,8 @@ export class ProfilePage implements OnInit {
     name: '',
     lastName: '',
     email: '',
-    phoneNumber: ''
+    phoneNumber: '',
+    password: ''
   };
   languageData: any;
   constructor(private router: Router, private userService: UserService, public toastController: ToastController) {
@@ -76,6 +77,7 @@ export class ProfilePage implements OnInit {
     this.userFormData.lastName = session.lastName;
     this.userFormData.email = session.email;
     this.userFormData.phoneNumber = session.phoneNumber;
+    this.userFormData.password = '';
   }
 
   async presentToast(message) {
@@ -87,6 +89,10 @@ export class ProfilePage implements OnInit {
   }
 
   updateUserForm(){
+    console.log('Enviar formulario111: ', this.userFormData);
+    if(this.userFormData.password ===''){
+      delete this.userFormData.password;
+    }
     if(this.form.valid && this.form.dirty){
       const postRequest = {
         id: this.userData.userId,

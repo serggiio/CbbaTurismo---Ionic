@@ -15,7 +15,9 @@ export const enConfig = {
     saved: 'Saved',
     logOut: 'Log out',
     logIn: 'LOG IN',
-    register: 'SIGN UP'
+    register: 'SIGN UP',
+    verification: 'VERIFICATION',
+    resetPassword: 'Reset password'
   },
   home: {
     title: 'Explore',
@@ -78,7 +80,9 @@ export const enConfig = {
     errorStatusToast: 'Check your email to activate your account',
     errorToast: 'An internal problem occurred, try again',
     successToast: 'Profile updated successfully!',
-    passwordInvalidToast: 'Passwords do not match'
+    passwordInvalidToast: 'Passwords do not match',
+    password: 'Password',
+    passwordOptional: ' (Optional)'
   },
   detail: {
     tabs: {
@@ -108,5 +112,11 @@ export const enConfig = {
   settings: {
     header: 'Available languages: ',
     message: 'Updated language!'
+  },
+  resetPassword: {
+    header: 'Reset password',
+    resetButton: 'Send',
+    errorEmail: 'Invalid email',
+    successEmail: 'Email sent'
   }
 };

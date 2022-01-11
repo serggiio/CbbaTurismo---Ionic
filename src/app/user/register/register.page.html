@@ -12,27 +12,27 @@
   <ion-card class="loginForm" style="z-index: 1;">
     <form (ngSubmit)="saveUserForm()" class="loginForm" #formAdd="ngForm">
       <div class="form-group">
-        <label for="name">{{languageData.register.nameField}}</label>
+        <label for="name"><strong><ion-icon name="person-circle" style="font-size: 20px;"></ion-icon>{{languageData.register.nameField}}</strong></label>
         <ion-input class="inputForm" type="text" [(ngModel)]="userFormData.name" name="name" required placeholder="{{languageData.register.nameField}}" ngModel [required]></ion-input>
       </div>
       <div class="form-group">
-        <label for="lastName">{{languageData.register.lastNameField}}</label>
+        <label for="lastName"><strong><ion-icon name="person-circle" style="font-size: 20px;"></ion-icon>{{languageData.register.lastNameField}}</strong></label>
         <ion-input class="inputForm" type="text" [(ngModel)]="userFormData.lastName" name="lastName" required placeholder="{{languageData.register.lastNameField}}" ngModel [required]></ion-input>
       </div>
       <div class="form-group">
-        <label for="email">{{languageData.register.emailField}}</label>
+        <label for="email"><strong><ion-icon name="mail-open"></ion-icon>{{languageData.register.emailField}}</strong></label>
         <ion-input class="inputForm" type="email" [(ngModel)]="userFormData.email" name="email" required placeholder="{{languageData.register.emailPlaceHolder}}" ngModel [email]="true"></ion-input>
       </div>
       <div class="form-group">
-        <label for="phoneNumber">{{languageData.register.numberField}}</label>
+        <label for="phoneNumber"><strong><ion-icon name="call"></ion-icon>{{languageData.register.numberField}}</strong></label>
         <ion-input class="inputForm" type="text" [(ngModel)]="userFormData.phoneNumber" name="phoneNumber" required placeholder="" ngModel [required]></ion-input>
       </div>
       <div class="form-group">
-        <label for="password">{{languageData.register.passwordField}}</label>
+        <label for="password"><strong><ion-icon name="key"></ion-icon>{{languageData.register.passwordField}}</strong></label>
         <ion-input class="inputForm" type="password" [(ngModel)]="userFormData.password" name="password" required placeholder="" ngModel [required]></ion-input>
       </div>
       <div class="form-group">
-        <label for="repeatPassword">{{languageData.register.repeatPasswordField}}</label>
+        <label for="repeatPassword"><strong><ion-icon name="key"></ion-icon>{{languageData.register.repeatPasswordField}}</strong></label>
         <ion-input class="inputForm" type="password" [(ngModel)]="userFormData.repeatPassword" name="repeatPassword" required placeholder="" ngModel [required]></ion-input>
       </div>
       <ion-button type="submit" style="width: 100%;" [disabled]="formAdd.form.invalid">{{languageData.register.registerButton}}</ion-button>

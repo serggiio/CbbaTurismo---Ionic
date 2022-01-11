@@ -15,7 +15,9 @@ export const esConfig = {
     saved: 'Guardados',
     logOut: 'Cerrar sesión',
     logIn: 'INICIA SESIÓN',
-    register: 'REGISTRATE'
+    register: 'REGISTRATE',
+    verification: 'VERIFICACIÓN',
+    resetPassword: 'Olvide mi contraseña'
   },
   home: {
     title: 'Explora',
@@ -78,7 +80,9 @@ export const esConfig = {
     errorStatusToast: 'Revisa tu correo para activar tu cuenta',
     errorToast: 'Ocurrio un problema interno, intente nuevamente',
     successToast: 'Perfil actualizado con éxito!',
-    passwordInvalidToast: 'Las contraseñas no coinciden'
+    passwordInvalidToast: 'Las contraseñas no coinciden',
+    password: 'Contraseña',
+    passwordOptional: ' (Opcional)'
   },
   detail: {
     tabs: {
@@ -108,5 +112,11 @@ export const esConfig = {
   settings: {
     header: 'Idiomas disponibles ',
     message: 'Idioma actualizado!'
+  },
+  resetPassword: {
+    header: 'Reiniciar la contraseña',
+    resetButton: 'Enviar',
+    errorEmail: 'Correo invalido',
+    successEmail: 'Correo enviado'
   }
 };
