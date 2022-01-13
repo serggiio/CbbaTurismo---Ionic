@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, Input, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
-import { EMPTY } from 'rxjs';
+import { EMPTY, Observable, Observer } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { SharedService } from 'src/app/services/shared/sharedDetail.service';
 import { TourismService } from 'src/app/services/tourism.service';
@@ -23,6 +23,7 @@ export class GeneralPage implements OnInit {
   sharingUrl = 'https://fast-eyrie-03100.herokuapp.com/api/touristicPlace/mainImage/';
   shareMessage = 'Visita el lugar turístico! ';
   messageLocation = '. En la siguiente ubicación: ';
+  base64Image: string;
 
   userData: any;
   userActualRate: any = 'Selecciona';
@@ -175,8 +176,21 @@ export class GeneralPage implements OnInit {
 //this.sharingUrl
   shareSocial(){
     console.log('On share');
+
+    this.getBase64ImageFromURL(this.urlImage + this.sharedService.detailId).subscribe(base64data => {
+      console.log(base64data);
+      this.base64Image = 'data:image/jpg;base64,'+base64data;
+      this.shareAction(this.base64Image);
+    }, err => {
+      //console.log('Error base64 image', err);
+      this.base64Image = null;
+      this.shareAction(this.base64Image);
+    });
+  }
+
+  shareAction(imageBase64){
     this.socialSharing.share(this.shareMessage + this.messageLocation , this.name,
-      null, 'http://fast-eyrie-03100.herokuapp.com')
+      imageBase64, 'http://fast-eyrie-03100.herokuapp.com')
     .then(() => {
       console.log('success on share');
     }).catch((e) =>{
@@ -296,6 +310,36 @@ export class GeneralPage implements OnInit {
       }
       this.editFavoriteStatus(favRequest);
     }
+  }
+
+  getBase64ImageFromURL(url: string) {
+    return Observable.create((observer: Observer<string>) => {
+      const img = new Image();
+      img.crossOrigin = 'Anonymous';
+      img.src = url;
+      if (!img.complete) {
+        img.onload = () => {
+          observer.next(this.getBase64Image(img));
+          observer.complete();
+        };
+        img.onerror = (err) => {
+          observer.error(err);
+        };
+      } else {
+        observer.next(this.getBase64Image(img));
+        observer.complete();
+      }
+    });
+  }
+
+  getBase64Image(img: HTMLImageElement) {
+    const canvas = document.createElement('canvas');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+    const dataURL = canvas.toDataURL('image/png');
+    return dataURL.replace(/^data:image\/(png|jpg);base64,/, '');
   }
 
 }

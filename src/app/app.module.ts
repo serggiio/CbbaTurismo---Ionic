@@ -17,9 +17,10 @@ import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/file/ngx';
+import { DetailImageComponent } from './detail/gallery/detail-image/detail-image.component';
 
 @NgModule({
-  declarations: [AppComponent, FilterComponent, PreviewDetailComponent, OptionsComponent],
+  declarations: [AppComponent, FilterComponent, PreviewDetailComponent, OptionsComponent, DetailImageComponent],
   entryComponents: [],
   imports: [HttpClientModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

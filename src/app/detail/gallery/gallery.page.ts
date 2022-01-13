@@ -16,6 +16,7 @@ import { DetailImageComponent } from './detail-image/detail-image.component';
 export class GalleryPage implements OnInit {
 
   touristicPlaceId: any;
+  placeName: string;
   detailData: any;
   galleriesData: any;
   urlImage = configConstants.api.baseUrl+configConstants.api.tourism.path+configConstants.api.tourism.image;
@@ -63,7 +64,7 @@ export class GalleryPage implements OnInit {
 
   setValues(detail){
     this.galleriesData = detail.gallery;
-
+    this.placeName = detail.placeName;
     console.log('Gallery data: ', this.galleriesData);
   }
 
@@ -83,7 +84,8 @@ export class GalleryPage implements OnInit {
     const modal = await this.modalController.create({
       component: DetailImageComponent,
       componentProps: {
-        image: url
+        image: url,
+        name: this.placeName
       }
     });
     return await modal.present();
