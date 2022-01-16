@@ -1,0 +1,54 @@
+Comandos que funcionaron para deployar en dispositivo pixel api 2
+
+ionic start CBBATurismo sidemenu --type=angular --capacitor
+npm install @capacitor/camera @capacitor/storage @capacitor/filesystem
+ionic serve
+ionic build
+ionic cap add android
+ionic cap copy
+ionic cap sync
+ionic cap run android
+
+Comandos rapidos
+ionic cap copy
+ionic cap sync
+ionic cap run android
+
+Si no existe agregar al manifiest
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <activity
+        android:screenOrientation="portrait"
+
+
+
+// TODO: cambiar iconos de lugares y usuario en mapa
+          <ion-list-header><img style="height: 80%;" class="mainIcon" src="../../assets/main.png" alt=""></ion-list-header>
+
+
+Para hacer funcionar en un dispositivo fisico Geolocalizacion
+Entrar desde android studio, buscar Geolocation.java y comentar
+/*if (!availability.isLocationAvailable()) {
+    resultCallback.error("location unavailable");
+    clearLocationUpdates();
+}*/
+
+QRScanner.java 
+import androidx.core.app.ActivityCompat;
+
+//Para social share androidx.core.content.FileProvider
+Cambiar en 
+FileProvider.java
+SocialSharing.java
+
+//Para resources splash y icon
+cambiar en resources imagenes icon y splash con los mismos tamaños 
+y ejecutar 
+cordova-res --skip-config --copy
+
+
+
+
+$2y$10$jD4zL/69D54I7SFKCPXxGuJTkRZOH/zuIzYbnFXVWvULESmFtWt9i
