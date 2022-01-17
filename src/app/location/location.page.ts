@@ -75,7 +75,7 @@ export class LocationPage implements OnInit {
     this.watchLocation = Geolocation.watchPosition({}, (position, err) => {
       console.log('new position: ', position);
       console.log('new position: err  ', err);
-      if(position) {
+      if(position && position.coords) {
         this.currentLocation = position.coords;
         /*this.currentLocation = {
           latitude: -17.3709969,

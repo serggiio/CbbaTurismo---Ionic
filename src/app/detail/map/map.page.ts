@@ -63,19 +63,19 @@ export class MapPage implements OnInit {
     this.watchLocation = Geolocation.watchPosition({timeout: 20000, enableHighAccuracy: true, maximumAge: 3600}, async (position, err) => {
       console.log('new position: ', position);
       console.log('new position: err  ', err);
-      if(position) {
-        //this.currentLocation = position.coords;
-        this.currentLocation = {
+      if(position && position.coords) {
+        this.currentLocation = position.coords;
+        /*this.currentLocation = {
           latitude: -17.3709969,
           longitude: -66.1593763
-        };
+        };*/
         //before add a marker delete all old user markers
         if(this.userMarker !== undefined) {
           this.userMarker.setMap(null);
         }
         this.addLocation(
-          -17.3709969, //position.coords.latitude, TODO
-          -66.1593763, //position.coords.longitude, TODO
+          position.coords.latitude, //-17.3709969 TODO
+          position.coords.longitude, //-66.1593763, TODO
           null,// google.maps.Animation.BOUNCE,
           '../../../assets/userMarker.png',
           'user'
