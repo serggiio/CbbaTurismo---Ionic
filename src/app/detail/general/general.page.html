@@ -119,7 +119,7 @@
       <div class="ionScrollH" style="display:flex; flex-direction: row; top: 50px;">
         <ion-card-subtitle *ngFor="let tag of tags">
           <ion-card class="ionScrollH cardTag" style="width: 90px; height: 115px; justify-content: center; overflow:hidden; white-space:nowrap; text-overflow: ellipsis;">
-            <img src="{{ urlTagImage+tag }}" alt="" style=" width: 100%; height: 100%;">
+            <img src="{{ urlTagImage+tag }}" alt="" style=" width: 100%; height: 100%;" onerror="this.onerror=null;this.src='../../../assets/tag.png';">
   
             <div class="coursemeal-info">
               {{tag}}
@@ -153,7 +153,7 @@
     <img style="z-index: -1; width: 100%; height: auto; position: absolute; filter: sepia(100%); -webkit-filter: sepia(100%);" src="{{urlImage + sharedService.detailId}}" alt="">
     <ion-card style="z-index: 9; position: absolute; margin-top: 50px; left: 20px; right: 20px;">
       <ion-card-title style="padding: 25px; left: 30%; right: 30%;">{{languageData.detail.general.history}}</ion-card-title>
-      <ion-card-content>{{history}}</ion-card-content>
+      <ion-card-content [innerHtml]="history"></ion-card-content>
     </ion-card>
   </div>
 </section>
